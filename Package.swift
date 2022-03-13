@@ -17,7 +17,6 @@ let package = Package(
   ],
   dependencies: [
     .package(url: "https://github.com/krzyzanowskim/CryptoSwift.git", .upToNextMajor(from: "1.4.2")),
-    .package(url: "https://github.com/MyEtherWallet/MEW-wallet-iOS-secp256k1-package.git", .exact("1.0.1")),
     .package(url: "https://github.com/Quick/Quick.git", .upToNextMajor(from: "3.0.0")),
     .package(url: "https://github.com/Quick/Nimble.git", .upToNextMajor(from: "9.0.0")),
     .package(url: "https://github.com/MyEtherWallet/bls-eth-swift.git", .exact("1.0.1")),
@@ -27,14 +26,14 @@ let package = Package(
   targets: [
     .target(
       name: "MEWwalletKit",
-      dependencies: ["CryptoSwift", "MEW-wallet-iOS-secp256k1-package", "bls-eth-swift", "MEWwalletTweetNacl", "BigInt"],
+      dependencies: ["CryptoSwift", "bls-eth-swift", "MEWwalletTweetNacl", "BigInt"],
       path: "Sources"
     ),
-    .testTarget(
-      name: "MEWwalletKitTests",
-      dependencies: ["MEWwalletKit", "Quick", "Nimble"],
-      path: "MEWwalletKitTests/Sources"
-    )
+//    .testTarget(
+//      name: "MEWwalletKitTests",
+//      dependencies: ["MEWwalletKit", "Quick", "Nimble"],
+//      path: "MEWwalletKitTests/Sources"
+//    )
   ],
   swiftLanguageVersions: [.v4, .v4_2, .v5]
 )
